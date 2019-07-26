@@ -41,4 +41,4 @@ pip-log.txt
 venv/
 
 ## pycharm files
-.idea
+.idea/
