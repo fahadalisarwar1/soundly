@@ -1,8 +1,7 @@
 """
 Feature Extraction
 ==================
-Temporal Features
------------------
+Feature extraction for temporal, spectral and speech.
 
 """
 from .temporal import *
