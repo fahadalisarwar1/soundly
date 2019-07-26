@@ -22,7 +22,9 @@ Guide
    :maxdepth: 2
 
    help
-
+   Tutorial
+   Features
+   io
 
 
 
