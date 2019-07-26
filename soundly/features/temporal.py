@@ -67,6 +67,18 @@ def get_max(audio=None):
     :return: max_value in array
     """
     if audio is not None:
+        return np.max(audio)
+    else:
+        print("[-] No Audio Provided")
+
+
+def get_min(audio=None):
+    """
+    Find the min value of array
+    :param audio:
+    :return: min_value in array
+    """
+    if audio is not None:
         return np.min(audio)
     else:
         print("[-] No Audio Provided")
