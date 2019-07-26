@@ -18,10 +18,10 @@ This library does *audio processing* ::
 
 Guide
 =====
-help_
-.. _help: help.rst
 .. toctree::
    :maxdepth: 2
+
+   help
 
 
 
