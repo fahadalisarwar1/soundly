@@ -58,3 +58,15 @@ def get_rms(audio=None):
     else:
         print("[-] Audio not provided")
         return 0
+
+
+def get_max(audio=None):
+    """
+    Find the max value of array
+    :param audio:
+    :return: max_value in array
+    """
+    if audio is not None:
+        return np.min(audio)
+    else:
+        print("[-] No Audio Provided")
