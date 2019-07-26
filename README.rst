@@ -1,5 +1,5 @@
 =========================
- Python Project Template
+ Soundly
 =========================
 
 Soundly is an audio library developed to do audio processing.
