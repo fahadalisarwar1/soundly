@@ -40,3 +40,4 @@ def get_spectral_centroid(audio=None, sample_rate=None):
         return np.sum(magnitudes*freqs) / np.sum(magnitudes)  # return weighted mean
     else:
         print("[-] No Audio provided")
+        return 0
