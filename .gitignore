@@ -36,4 +36,9 @@ pip-log.txt
 
 ## paver generated files
 /paver-minilib.zip
+
+## virtual environment
 venv/
+
+## pycharm files
+.idea
