@@ -31,3 +31,12 @@ def get_audio_spectrum(audio=None, sample_rate=None):
 
 # def spectral_rolloff(audio=None):
 
+
+def get_spectral_centroid(audio=None, sample_rate=None):
+    if audio is not None:
+        magnitudes = np.abs(np.fft.rfft(audio))  # magnitudes of positive frequencies
+        length = len(audio)
+        freqs = np.abs(np.fft.fftfreq(length, 1.0/sample_rate)[:length//2+1])  # positive frequencies
+        return np.sum(magnitudes*freqs) / np.sum(magnitudes)  # return weighted mean
+    else:
+        print("[-] No Audio provided")
