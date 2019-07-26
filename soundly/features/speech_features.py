@@ -11,6 +11,18 @@ def get_mfcc(audio=None,
              NFFT_ = 512,
              n_fil_=40,
              num_coeff=15):
+    """
+    Computes MFCC for frames
+    :param audio: audio signal
+    :param sample_rate: sampling rate of audio
+    :param frame_size_: size of each frame
+    :param pre_emphasis_:
+    :param frame_stride_:
+    :param NFFT_:
+    :param n_fil_:
+    :param num_coeff: number of MFCC coefficients to be calculated
+    :return: MFCC coefficients.
+    """
     pre_emphasis = pre_emphasis_
     print("len" + str(len(audio)/sample_rate))
     emphasized_signal = np.append(audio[0], audio[1:] - pre_emphasis * audio[:-1])

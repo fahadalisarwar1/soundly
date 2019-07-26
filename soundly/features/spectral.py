@@ -3,7 +3,8 @@ from scipy.fftpack import fft
 
 __all_features__ = [
     'spectral_centroid',
-    'spectral_rolloff'
+    'spectral_rolloff',
+    'audio_spectrum'
 ]
 
 
