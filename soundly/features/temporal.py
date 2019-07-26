@@ -28,7 +28,7 @@ def get_mean(audio=None):
     :param audio: data array
     :return: mean of the data
     """
-    if not audio:
+    if audio is not None:
         return np.mean(audio)
 
 
