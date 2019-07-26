@@ -1,6 +1,6 @@
 
-Welcome to documentation: Soundly!
-===================================
+Documentation: Soundly
+======================
 :Author: Fahad Ali Sarwar
 :Date: 25 July 2019
 
@@ -19,11 +19,11 @@ This library does *audio processing* ::
 Guide
 =====
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    help
-   Tutorial
-   Features
+   tutorial
+   features
    io
 
 
