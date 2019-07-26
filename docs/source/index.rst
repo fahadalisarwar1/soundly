@@ -19,7 +19,7 @@ This library does *audio processing* ::
 Guide
 =====
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    help
    tutorial
