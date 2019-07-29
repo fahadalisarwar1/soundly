@@ -5,7 +5,7 @@ Documentation: Soundly
 :Date: 25 July 2019
 
 Introduction
-============
+------------
 
 This library does *audio processing* ::
 
@@ -16,8 +16,8 @@ This library does *audio processing* ::
 
 
 
-Guide
-=====
+Contents
+--------
 .. toctree::
    :maxdepth: 1
 
@@ -28,8 +28,8 @@ Guide
 
 
 
-Indices and tables
-==================
+Extra
+-----
 
 * :ref:`genindex`
 * :ref:`modindex`
