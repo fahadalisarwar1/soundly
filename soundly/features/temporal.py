@@ -128,3 +128,28 @@ def get_steven_loudness(audio=None):
         return np.power(get_energy(audio), 0.67)
     else:
         print("[-] Error, No Audio Provided")
+
+
+def temporal_all_feat(audio=None, sample_rate=None):
+    if audio is not None:
+        mean_audio = get_mean(audio)
+        min_audio = get_min(audio)
+        max_audio = get_max(audio)
+        energy_audio = get_energy(audio)
+        loudness_audio = get_steven_loudness(audio)
+        envelope_audio = get_envelope(audio)
+        zcr_audio = get_zero_crossing_rate(audio)
+        feat_dict = {
+            'mean_audio': mean_audio,
+            'min_audio': min_audio,
+            'max_audio': max_audio,
+            'energy_audio': energy_audio,
+            'loudness_audio': loudness_audio,
+            'envelope_audio': envelope_audio,
+            'zcr_audio': zcr_audio
+        }
+        return feat_dict
+    else:
+        print("[-] Error, No Audio Selected")
+        return 0
+

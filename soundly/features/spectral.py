@@ -32,7 +32,7 @@ def get_audio_spectrum(audio=None):
 
 def spectral_flux(audio=None):
     spectrum = get_audio_spectrum(audio)
-    
+
 
 def get_spectral_centroid(audio=None, sample_rate=None):
     """

@@ -1,5 +1,4 @@
 import numpy as np
-import scipy.io.wavfile
 from scipy.fftpack import dct
 
 
@@ -16,10 +15,10 @@ def get_mfcc(audio=None,
     :param audio: audio signal
     :param sample_rate: sampling rate of audio
     :param frame_size_: size of each frame
-    :param pre_emphasis_:
-    :param frame_stride_:
-    :param NFFT_:
-    :param n_fil_:
+    :param pre_emphasis_: pre-emphasis filter
+    :param frame_stride_: overlapping duration
+    :param NFFT_: N point FFT
+    :param n_fil_: number of filter banks
     :param num_coeff: number of MFCC coefficients to be calculated
     :return: MFCC coefficients.
     """
