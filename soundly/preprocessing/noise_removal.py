@@ -1,3 +1,5 @@
+# NOTE NOT COMPLETED YET !
+###############
 from scipy.signal import stft
 from scipy.signal import istft
 import numpy as np

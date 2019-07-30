@@ -8,8 +8,8 @@ from pytest import raises
 import pytest
 parametrize = pytest.mark.parametrize
 
-from src import metadata
-from src.main import main
+from soundly import metadata
+from soundly.main import main
 
 
 class TestMain(object):
