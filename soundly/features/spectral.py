@@ -8,11 +8,10 @@ __all_features__ = [
 ]
 
 
-def get_audio_spectrum(audio=None, sample_rate=None):
+def get_audio_spectrum(audio=None):
     """
     Computes the magnitude spectrum of an array of Reals
     :param audio: audio array
-    :param sample_rate: sampling rate of audio signal
     :return: spectrum of the signal
     """
     if audio is not None:
@@ -30,10 +29,18 @@ def get_audio_spectrum(audio=None, sample_rate=None):
     else:
         print("[-] No Audio provided")
 
-# def spectral_rolloff(audio=None):
 
+def spectral_flux(audio=None):
+    spectrum = get_audio_spectrum(audio)
+    
 
 def get_spectral_centroid(audio=None, sample_rate=None):
+    """
+    Calculates the spectral centroid of audio signal
+    :param audio: audio array
+    :param sample_rate: sampling rate of audio
+    :return: spectral centroid
+    """
     if audio is not None:
         magnitudes = np.abs(np.fft.rfft(audio))  # magnitudes of positive frequencies
         length = len(audio)
