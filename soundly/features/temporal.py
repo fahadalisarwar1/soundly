@@ -71,8 +71,26 @@ def get_peaks(audio=None):
     :return: peaks of the signal
     """
     if audio is not None:
-        peaks = find_peaks(audio)
+        peaks = find_peaks(audio)[0]
         return peaks
+
+
+def get_peak_envelope_ratio(envelope=None):
+    """
+    This algorithm computes the ratio between the index of the maximum value of the envelope of a signal
+     and the total length of the envelope.This ratio shows how much the maximum amplitude is off-center.
+     Its value is close to 0 if the maximum is close to the beginning (e.g. Decrescendo or Impulsive sounds),
+     close to 0.5 if it is close to the middle (e.g. Delta sounds) and close to 1 if it is close to the end
+      of the sound (e.g. Crescendo sounds).
+     This algorithm is intended to be fed by the output of the Envelope algorithm
+    :param envelope: the envelope of the signal
+    :return: the maximum amplitude position to total length ratio
+    """
+    if envelope is not None:
+        peak_index = np.argmax(envelope)
+        return peak_index / len(envelope)
+    else:
+        print("[-] Error please provide envelope array")
 
 
 def temporal_all_feat(audio=None, sample_rate=None):
@@ -88,13 +106,14 @@ def temporal_all_feat(audio=None, sample_rate=None):
         envelope_audio = get_envelope(audio)
         zcr_audio = get_zero_crossing_rate(audio)
         peaks_audio = get_peaks(audio)
-
+        peak_envelope_ratio = get_peak_envelope_ratio()
         feat_dict = {
             'energy_audio': energy_audio,
             'loudness_audio': loudness_audio,
             'envelope_audio': envelope_audio,
             'zcr_audio': zcr_audio,
-            'peaks_audio': peaks_audio
+            'peaks_audio': peaks_audio,
+            'peak_envelope_ratio': peak_envelope_ratio
         }
         return feat_dict
     else:
