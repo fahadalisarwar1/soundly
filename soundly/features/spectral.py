@@ -45,7 +45,7 @@ def get_spectral_centroid(audio=None, sample_rate=None):
     :param sample_rate: sampling rate of audio
     :return: spectral centroid
     """
-    if audio is not None:
+    if audio is not None and sample_rate is not None:
         magnitudes = np.abs(np.fft.rfft(audio))  # magnitudes of positive frequencies
         length = len(audio)
         freqs = np.abs(np.fft.fftfreq(length, 1.0/sample_rate)[:length//2+1])  # positive frequencies
