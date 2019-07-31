@@ -1,16 +1,14 @@
 import numpy as np
 from scipy.signal import hilbert
-from scipy.stats.mstats import gmean
+
+from scipy.signal import find_peaks
 
 all_features = [
-    "mean",
-    "max",
-    "min",
     'zero_crossing_rate',
     "envelope",
-    'rms',
     'energy',
-    'flatness_coefficient'
+    'steven_loudness'
+    'peaks'
 ]
 
 
@@ -22,16 +20,6 @@ def get_zero_crossing_rate(audio=None):
     """
     zero_crosses = ((audio[:-1] * audio[1:]) < 0).sum()
     return zero_crosses
-
-
-def get_mean(audio=None):
-    """
-    Find mean of the data array
-    :param audio: data array
-    :return: mean of the data
-    """
-    if audio is not None:
-        return np.mean(audio)
 
 
 def get_envelope(audio=None):
@@ -49,43 +37,6 @@ def get_envelope(audio=None):
         return 0
 
 
-def get_rms(audio=None):
-    """
-    Computes the root mean square of an array/audio signal
-    :param audio: audio array
-    :return: RMS of an array
-    """
-    if audio is not None:
-        return np.sqrt(np.mean(audio**2))
-    else:
-        print("[-] Audio not provided")
-        return 0
-
-
-def get_max(audio=None):
-    """
-    Find the max value of array
-    :param audio:
-    :return: max_value in array
-    """
-    if audio is not None:
-        return np.max(audio)
-    else:
-        print("[-] No Audio Provided")
-
-
-def get_min(audio=None):
-    """
-    Find the min value of array
-    :param audio:
-    :return: min_value in array
-    """
-    if audio is not None:
-        return np.min(audio)
-    else:
-        print("[-] No Audio Provided")
-
-
 def get_energy(audio=None):
     """
     returns the energy of a signal
@@ -97,29 +48,6 @@ def get_energy(audio=None):
     else:
         print("[-] Error, No Audio File provided")
         return 0
-
-
-def get_geometric_mean(audio=None):
-    """
-    returns the geometric mean of an array
-    :param audio: audio array
-    :return: geo-metric mean
-    """
-    if audio is not None:
-        return gmean(audio)
-    else:
-        print("[-] No audio provided")
-        return 0
-
-
-def geo_mean(audio):
-    """
-    finds geometric mean of an array
-    :param audio: array
-    :return: geometric mean
-    """
-    a = np.array(audio)
-    return a.prod() ** (1.0 / len(a))
 
 
 def get_steven_loudness(audio=None):
@@ -136,6 +64,17 @@ def get_steven_loudness(audio=None):
         print("[-] Error, No Audio Provided")
 
 
+def get_peaks(audio=None):
+    """
+    Peaks of audio signal
+    :param audio: audio data
+    :return: peaks of the signal
+    """
+    if audio is not None:
+        peaks = find_peaks(audio)
+        return peaks
+
+
 def temporal_all_feat(audio=None, sample_rate=None):
     """
     Calculates all of tmeporal features
@@ -144,21 +83,18 @@ def temporal_all_feat(audio=None, sample_rate=None):
     :return: dictionary of extracted temporal features
     """
     if audio is not None:
-        mean_audio = get_mean(audio)
-        min_audio = get_min(audio)
-        max_audio = get_max(audio)
         energy_audio = get_energy(audio)
         loudness_audio = get_steven_loudness(audio)
         envelope_audio = get_envelope(audio)
         zcr_audio = get_zero_crossing_rate(audio)
+        peaks_audio = get_peaks(audio)
+
         feat_dict = {
-            'mean_audio': mean_audio,
-            'min_audio': min_audio,
-            'max_audio': max_audio,
             'energy_audio': energy_audio,
             'loudness_audio': loudness_audio,
             'envelope_audio': envelope_audio,
-            'zcr_audio': zcr_audio
+            'zcr_audio': zcr_audio,
+            'peaks_audio': peaks_audio
         }
         return feat_dict
     else:
