@@ -9,7 +9,8 @@ all_features = [
     'zero_crossing_rate',
     "envelope",
     'rms',
-    'energy'
+    'energy',
+    'flatness_coefficient'
 ]
 
 
@@ -112,6 +113,11 @@ def get_geometric_mean(audio=None):
 
 
 def geo_mean(audio):
+    """
+    finds geometric mean of an array
+    :param audio: array
+    :return: geometric mean
+    """
     a = np.array(audio)
     return a.prod() ** (1.0 / len(a))
 
@@ -132,10 +138,10 @@ def get_steven_loudness(audio=None):
 
 def temporal_all_feat(audio=None, sample_rate=None):
     """
-
-    :param audio:
-    :param sample_rate:
-    :return:
+    Calculates all of tmeporal features
+    :param audio: audio data
+    :param sample_rate: sampling rate of audio
+    :return: dictionary of extracted temporal features
     """
     if audio is not None:
         mean_audio = get_mean(audio)

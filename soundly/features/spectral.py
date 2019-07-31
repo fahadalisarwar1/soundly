@@ -31,7 +31,11 @@ def get_audio_spectrum(audio=None):
 
 
 def spectral_flux(audio=None):
-    spectrum = get_audio_spectrum(audio)
+    if audio is not None:
+
+        spectrum = get_audio_spectrum(audio)
+    else:
+        print("[-] No Audio provided")
 
 
 def get_spectral_centroid(audio=None, sample_rate=None):
