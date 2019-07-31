@@ -131,6 +131,12 @@ def get_steven_loudness(audio=None):
 
 
 def temporal_all_feat(audio=None, sample_rate=None):
+    """
+
+    :param audio:
+    :param sample_rate:
+    :return:
+    """
     if audio is not None:
         mean_audio = get_mean(audio)
         min_audio = get_min(audio)
