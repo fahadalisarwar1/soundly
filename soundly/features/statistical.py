@@ -70,3 +70,18 @@ def geo_mean(audio):
     """
     a = np.array(audio)
     return a.prod() ** (1.0 / len(a))
+
+
+def get_flatness(audio=None):
+    """
+    This algorithm computes the flatness of an array, which is defined as the ratio between
+    the geometric mean and the arithmetic mean.
+    :param audio: the input array
+    :return:  the flatness (ratio between the geometric and the arithmetic mean of the input array)
+    """
+    if audio is not None:
+
+        gm = get_geometric_mean(audio)
+        _mean = get_mean(audio)
+        flatness = gm / _mean
+        return flatness

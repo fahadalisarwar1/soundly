@@ -93,6 +93,17 @@ def get_peak_envelope_ratio(envelope=None):
         print("[-] Error please provide envelope array")
 
 
+def get_audio_duration(audio=None, sample_rate=None):
+    """
+    This algorithm outputs the total duration of an audio signal.
+    :param audio: the input signal
+    :param sample_rate: the sampling rate of the audio signal [Hz]
+    :return: the duration of the signal [s]
+    """
+    if audio is not None:
+        return len(audio)/sample_rate
+
+
 def temporal_all_feat(audio=None, sample_rate=None):
     """
     Calculates all of tmeporal features
