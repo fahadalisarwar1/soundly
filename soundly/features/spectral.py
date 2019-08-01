@@ -55,3 +55,33 @@ def get_spectral_centroid(audio=None, sample_rate=None):
     else:
         print("[-] No Audio provided")
         return 0
+
+
+def get_power_spectral_density(audio_array=None, sampling_rate=22050):
+    """
+    Estimate power spectral density using a periodogram.
+    :param audio_array:
+    :param sampling_rate:
+    """
+    from scipy.signal import periodogram
+    f, psd = periodogram(audio_array, sampling_rate)
+    return f, psd
+
+
+def get_spectrum_peaks(spectrum=None):
+    """
+    find the spectrum peak frequencies and values
+    :param spectrum: spectrum of signal
+    :return: peak indexes, peak values
+    """
+    if spectrum is not None:
+        from scipy.signal import find_peaks, find_peaks_cwt
+        peak_indices = find_peaks(spectrum)[0]
+        peak_values = []
+        for i in peak_indices:
+            peak_values.append(spectrum[i])
+        peak_values = np.asarray(peak_values)
+        return peak_indices, peak_values
+
+
+
