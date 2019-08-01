@@ -104,7 +104,8 @@ def get_audio_duration(audio=None, sample_rate=None):
         return len(audio)/sample_rate
 
 
-def temporal_all_feat(audio=None, sample_rate=None):
+def temporal_all_feat(audio=None,
+                      sample_rate=None):
     """
     Calculates all of tmeporal features
     :param audio: audio data

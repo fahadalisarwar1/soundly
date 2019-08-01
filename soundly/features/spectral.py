@@ -34,6 +34,8 @@ def spectral_flux(audio=None):
     if audio is not None:
 
         spectrum = get_audio_spectrum(audio)
+        # TODO Not completed yet
+        return spectrum
     else:
         print("[-] No Audio provided")
 

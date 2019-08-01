@@ -78,6 +78,7 @@ def get_flatness(audio=None):
     the geometric mean and the arithmetic mean.
     :param audio: the input array
     :return:  the flatness (ratio between the geometric and the arithmetic mean of the input array)
+
     """
     if audio is not None:
 
