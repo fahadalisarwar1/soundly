@@ -6,3 +6,5 @@ load.py
 +++++++
 
 This file contains function to load wav files
+
+.. automodule:: soundly.io.load
