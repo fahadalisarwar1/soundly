@@ -1,4 +1,4 @@
-from soundly.features.temporal import get_max
+from soundly.features.statistical import get_max
 import numpy as np
 
 
