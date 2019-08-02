@@ -1,5 +1,7 @@
 import numpy as np
 from scipy.fftpack import fft
+from scipy.signal import periodogram
+from scipy.signal import find_peaks, find_peaks_cwt
 
 __all_features__ = [
     'spectral_centroid',
@@ -63,7 +65,6 @@ def get_power_spectral_density(audio_array=None, sampling_rate=22050):
     :param audio_array:
     :param sampling_rate:
     """
-    from scipy.signal import periodogram
     f, psd = periodogram(audio_array, sampling_rate)
     return f, psd
 
@@ -75,7 +76,7 @@ def get_spectrum_peaks(spectrum=None):
     :return: peak indexes, peak values
     """
     if spectrum is not None:
-        from scipy.signal import find_peaks, find_peaks_cwt
+
         peak_indices = find_peaks(spectrum)[0]
         peak_values = []
         for i in peak_indices:
